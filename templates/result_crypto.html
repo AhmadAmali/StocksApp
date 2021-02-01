@@ -1,0 +1,11 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<div class="center-on-page">
+<h1>Live Financial Information</h1>
+{% for d in data %}
+<h1 value="{{ d.name }}">{{ d.name }}</h1>
+<h1 value="{{ d.quoteType }}">{{ d.quoteType }}</h1>    
+<h1 value="{{ d.regularMarketOpen }}">Price on Market Open = {{ d.regularMarketOpen }}</h1>
+<h1 value="{{ d.regularMarketDayHigh }}">Market Day High = {{ d.regularMarketDayHigh }}</h1>
+<h1 value="{{ d.regularMarketDayLow }}">Market Day Low = {{ d.regularMarketDayLow }}</h1>   
+{% endfor %}
