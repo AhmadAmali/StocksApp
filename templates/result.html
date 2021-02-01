@@ -1,12 +1,11 @@
 <!doctype html>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 <div class="center-on-page">
+<h1>Live Financial Information</h1>
 {% for d in data %}
- {% set my_string = "static/img/" + d['weather'][0]['icon']+ ".svg" %}
-    <h1>
-  <img src="{{ my_string }}" class="svg" fill="white" height="100" vertical-align="middle" width="100">
- </h1> 
- <h1>Weather</h1>
- <h1>{{ d['name'] }}, {{ d['sys']['country'] }}</h1>
-    <h1>{{ d['main']['temp']|round|int}} °C</h1>
+<h1 value="{{ d.longName }}">{{ d.longName }}</h1>  
+<h1 value="{{ d.industry }}">{{ d.industry }}</h1>
+<h1 value="{{ d.regularMarketDayHigh }}">Market Day High = {{ d.regularMarketDayHigh }}</h1>
+<h1 value="{{ d.regularMarketDayLow }}">Market Day Low = {{ d.regularMarketDayLow }}</h1>
+<h1 value="{{ d.regularMarketPrice }}">Regular Market Price = {{ d.regularMarketPrice }}</h1>      
 {% endfor %}

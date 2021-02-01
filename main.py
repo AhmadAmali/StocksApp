@@ -16,17 +16,24 @@ def index():
 @app.route("/result" , methods=['GET', 'POST'])
 
 def result():
+    tickerDict = {'Tesla': "TSLA", 'Apple': "AAPL", 'Google' : "GOOG", 'Microsoft': "MSFT",'Samsung': "SSNLF", "Intuit": 'INTU', "Goldman Sachs": 'GS'}
     data = []
     error = None
     select = request.form.get('comp_select')
-    resp = query_api(select)
-    pp(resp)
+    print(select)
+    company_select = ''
+    for cursor in tickerDict.keys():
+        if cursor == select:
+            company_select = tickerDict[cursor]
+    resp = query_api(company_select)
     if resp:
        data.append(resp)
-    if len(data) != 2:
+    else:
         error = 'Bad Response from Stocks API'
+    pp(data)
     return render_template(
         'result.html',
+        name=select,
         data=data,
         error=error)
 

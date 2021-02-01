@@ -1,18 +1,15 @@
 ## stocks python file
 
 from datetime import datetime
-from iexfinance.stocks import Stock
+import yfinance as yf
 import os
 import pytz
 import requests
 import math
 
-API_URL = ('http://api.openweathermap.org/data/2.5/weather?q={}&mode=json&units=metric&appid={}')
-def query_api(city):
-    try:
-        print(API_URL.format(city, API_KEY))
-        data = requests.get(API_URL.format(city, API_KEY)).json()
-    except Exception as exc:
-        print(exc)
-        data = None
-    return data
+def query_api(city_ticker):
+    city_ticker = city_ticker.upper()
+    company = yf.Ticker(city_ticker)
+
+    return company.info
+    
