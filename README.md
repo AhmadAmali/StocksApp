@@ -3,9 +3,9 @@
  
  # To run locally
  
- *clone the repo into your machine
- *pip3 install -r requirements.txt
- *python3 main.py
+ * clone the repo into your machine
+ * pip3 install -r requirements.txt
+ * python3 main.py
  
  # deployed at: https://financialdata.herokuapp.com/
  
