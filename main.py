@@ -2,17 +2,16 @@
 
 from pprint import pprint as pp
 from flask import Flask, flash, redirect, render_template, request, url_for
-from weather import query_api
+from stocks import query_api
 app = Flask(__name__)
 @app.route('/')
 
 def index():
     return render_template(
-        'weather.html',
+        'stock.html',
         data=[{'name':'Tesla'}, {'name':'Apple'}, {'name':'Google'},
-        {'name':'Samsung'}, {'name':'Bitcoin'}, {'name':'Intuit'},
-        {'name':'Goldman Sachs'}, {'name':'Microsoft'}, {'name':''}, 
-        {'name':'Quebec'}])
+        {'name':'Samsung'},{'name':'Intuit'},
+        {'name':'Goldman Sachs'}, {'name':'Microsoft'}])
 
 @app.route("/result" , methods=['GET', 'POST'])
 
